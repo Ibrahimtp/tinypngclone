@@ -11,7 +11,7 @@ html {
   line-height: 1.5rem;
 }
 
-body {
+main {
   background-color: skyblue;
   background-image: url("../img/clouds.jpg");
   background-size: cover;
