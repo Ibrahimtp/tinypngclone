@@ -11,19 +11,19 @@ html {
   line-height: 1.5rem;
 }
 
-main {
+#ccc {
   background-color: skyblue;
   background-image: url("../img/clouds.jpg");
   background-size: cover;
   background-blend-mode: overlay;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   display: flex;
   justify-content: center;
   align-items: flex-start;
   padding: 1.75em 1em;
 }
 
-main {
+#ccc {
   display: flex;
   flex-direction: column;
   position: relative;
