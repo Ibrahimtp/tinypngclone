@@ -13,7 +13,7 @@ html {
 
 #ccc {
   background-color: skyblue;
-  background-image: url("../img/clouds.jpg");
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXeldL9CJbBnPsLIzpnOm2jMT_NXegNz2cGg&usqp=CAU");
   background-size: cover;
   background-blend-mode: overlay;
   /* min-height: 100vh; */

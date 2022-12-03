@@ -31,7 +31,7 @@ const handleDrop = (e) => {
   const dt = e.dataTransfer;
   const files = dt.files;
   const fileArray = [...files];
-  if (fileArray.length > 40) return alert("Too many files!");
+  if (fileArray.length > 30) return alert("Too many files!");
   handleFiles(fileArray);
 };
 
@@ -39,7 +39,7 @@ const handleFiles = (fileArray) => {
   fileArray.forEach((file) => {
     const fileID = counter.getValue();
     counter.incrementValue();
-    if (file.size > 10 * 1024 * 1024) return alert("File over 10 MB");
+    if (file.size > 4 * 1024 * 1024) return alert("File over 10 MB");
     createResult(file, fileID);
     uploadFile(file, fileID);
   });
