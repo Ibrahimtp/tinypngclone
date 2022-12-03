@@ -39,7 +39,7 @@ const handleFiles = (fileArray) => {
   fileArray.forEach((file) => {
     const fileID = counter.getValue();
     counter.incrementValue();
-    if (file.size > 10 * 1024 * 1024) return alert("File over 4 MB");
+    if (file.size > 10 * 1024 * 1024) return alert("File over 10 MB");
     createResult(file, fileID);
     uploadFile(file, fileID);
   });
