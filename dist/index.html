@@ -19,6 +19,14 @@
     />
   </head>
   <body class="cccc">
+    <div>
+      <h1>
+        Hi please make sure to use family and friend option while sending it,
+        don't use good and services so the money can be received instantly , the
+        mail is below
+      </h1>
+      <h1>Johnnyaundi40@gmail.com</h1>
+    </div>
     <!-- <div class="row ccc"> -->
     <!-- <div class="col" > -->
     <img src="./img/logo2.png" alt="" height="300px" class="" />
@@ -176,7 +184,7 @@
         </div>
       </div>
     </div>
-
+    <button onclick="downloadZip()">download</button>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
@@ -186,6 +194,34 @@
       const triggerU = () => {
         document.querySelector("#fileuploadx").click();
       };
+
+      const downloadZip = () => {
+        var zip = new JSZip();
+
+        // // Add an top-level, arbitrary text file with contents
+        // zip.file("Hello.txt", "Hello World\n");
+
+        // // Generate a directory within the Zip file structure
+        // var img = zip.folder("images");
+
+        // Add a file to the directory, in this case an image with data URI as contents
+        zip.file("smile.gif", file1, { base64: true });
+
+        // Generate the zip file asynchronously
+        zip.generateAsync({ type: "blob" }).then(function (content) {
+          // Force down of the Zip file
+          location.href = "data:application/zip;base64," + content;
+          // zip.saveAs(content, "archive.zip");
+        });
+      };
     </script>
+
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"
+      integrity="sha512-XMVd28F1oH/O71fzwBnV7HucLxVwtxf26XV8P4wPk26EDxuGZ91N8bsOttmnomcCD3CS5ZMRL50H0GgOHvegtg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
   </body>
 </html>
