@@ -3,6 +3,7 @@ const counter = new Counter();
 
 const initApp = () => {
   const droparea = document.querySelector(".droparea");
+  const inputField = document.querySelector("#fileuploadx");
 
   const active = () => droparea.classList.add("green-border");
 
@@ -12,23 +13,42 @@ const initApp = () => {
 
   ["dragover", "drop"].forEach((evtName) => {
     droparea.addEventListener(evtName, prevents);
+    inputField.addEventListener(evtName, prevents);
   });
 
   ["dragenter", "dragover"].forEach((evtName) => {
     droparea.addEventListener(evtName, active);
+    inputField.addEventListener(evtName, active);
   });
 
   ["dragleave", "drop"].forEach((evtName) => {
     droparea.addEventListener(evtName, inactive);
+    inputField.addEventListener(evtName, inactive);
   });
 
   droparea.addEventListener("drop", handleDrop);
+  inputField.addEventListener("change", handleDropx);
 };
 
 document.addEventListener("DOMContentLoaded", initApp);
 
+const handleDropx = (e) => {
+  const inputField = document.querySelector("#fileuploadx");
+
+  // alert(inputField.files[0]);
+  const files = inputField.files;
+  const fileArray = [...files];
+  if (fileArray.length > 30) return alert("Too many files!");
+  handleFiles(fileArray);
+  // const files = dt.files;
+  // const fileArray = [...files];
+  // if (fileArray.length > 30) return alert("Too many files!");
+  // handleFiles(fileArray);
+};
+
 const handleDrop = (e) => {
   const dt = e.dataTransfer;
+  // alert(JSON.stringify(dt.files[0]));
   const files = dt.files;
   const fileArray = [...files];
   if (fileArray.length > 30) return alert("Too many files!");

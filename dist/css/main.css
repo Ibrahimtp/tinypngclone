@@ -11,24 +11,63 @@ html {
   line-height: 1.5rem;
 }
 
-#ccc {
-  background-color: skyblue;
-  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXeldL9CJbBnPsLIzpnOm2jMT_NXegNz2cGg&usqp=CAU");
+.ccc {
+  /* background-color: skyblue; */
+  /* background-image: url("../img/bg1.jpg"); */
   background-size: cover;
   background-blend-mode: overlay;
   /* min-height: 100vh; */
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   padding: 1.75em 1em;
 }
 
-#ccc {
+.ccc {
   display: flex;
   flex-direction: column;
   position: relative;
   width: 100%;
 }
+
+.cccc {
+  background-color: skyblue;
+  background-image: url("../img/bgg.jpg");
+  background-size: cover;
+  background-blend-mode: overlay;
+  /* min-height: 100vh; */
+  /* display: flex; */
+  /* justify-content: center;
+  align-items: center; */
+  /* padding: 1.75em 1em; */
+}
+
+.cccc {
+  /* display: flex;
+  flex-direction: column; */
+  /* position: relative; */
+  width: 100%;
+}
+/* 
+.ccc {
+  background-color: skyblue;
+  background-image: url("../img/bg1.jpg");
+
+  background-size: cover;
+  background-blend-mode: overlay;
+  /* min-height: 100vh; *
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.75em 1em;
+}
+
+.ccc {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+} */
 
 header {
   margin-top: 1rem;

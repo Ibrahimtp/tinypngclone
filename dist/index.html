@@ -18,23 +18,29 @@
       crossorigin="anonymous"
     />
   </head>
-  <body>
-    <div class="container-fluid" id="ccc">
-      <div class="row">
-        <div class="col">
-          <img src="./img/logo.png" alt="" height="80px" class="" />
-        </div>
+  <body class="cccc">
+    <!-- <div class="row ccc"> -->
+    <!-- <div class="col" > -->
+    <img src="./img/logo2.png" alt="" height="300px" class="" />
+    <!-- </div> -->
+    <!-- </div>
 
-        <div class="col">
-          <h2 class="text-left">Image Optimization</h2>
-        </div>
+      <div class="col">
+        -- <h2 class="text-left">Image Optimization</h2> --
       </div>
+    </div> -->
+    <div class="container-fluid ccc" id="ccc">
+      <!-- <img src="./img/logo2.png" alt="" height="300px" class="" /> -->
+
       <div class="">
-        <div class="container mt-2">
-          <section class="droparea">
+        <div class="container mx-auto">
+          <section class="droparea w-75 mx-auto" onclick="triggerU()">
             <i class="far fa-images"></i>
-            <p>Drop your .png .webp or .jpg files here!</p>
+            <p>Drop your .png .webp or .jpg files here! or upload them below</p>
             <p><small>Up to 20 images, max 4 MB each.</small></p>
+          </section>
+          <section class="d-none">
+            <input type="file" class="form-control" multiple id="fileuploadx" />
           </section>
         </div>
         <section class="results none">
@@ -42,7 +48,7 @@
         </section>
 
         <div
-          style="margin: 0px; background-color: #fff5ee"
+          style="margin: 0px; background-color: transparent"
           class="d-none d-xl-block"
         >
           <h2 style="margin-top: 100px" class="text-center p-3">
@@ -106,63 +112,68 @@
           </div>
         </div>
       </div>
-    </div>
 
-    <div
-      style="margin: 0px; background-color: #fff5ee"
-      class="d-xl-none d-lg-none d-md-block container-fluid"
-    >
-      <h2 style="margin-top: 100px" class="text-center p-3">
-        Optimize my image is a free web tool that helps you optimize your images
-      </h2>
-      <h5 class="text-center">
-        Speed up your website and reduce costs by reducing image file size with
-        AI-powered image optimization.
-      </h5>
-      <br />
+      <div
+        style="margin: 0px; background-color: transparent"
+        class="d-xl-none d-lg-none d-md-block container-fluid"
+      >
+        <h2 style="margin-top: 100px" class="text-center p-3">
+          Optimize my image is a free web tool that helps you optimize your
+          images
+        </h2>
+        <h5 class="text-center">
+          Speed up your website and reduce costs by reducing image file size
+          with AI-powered image optimization.
+        </h5>
+        <br />
 
-      <div class="col">
-        <b><h4>Smart Compress for best image quality</h4></b> Focus on creating
-        high-quality content while we do the optimization work. Our AI is
-        trained to balance quality and file size, so your images still look
-        sharp after optimization, without any pixelation.
-      </div>
-      <br />
+        <div class="col">
+          <b><h4>Smart Compress for best image quality</h4></b> Focus on
+          creating high-quality content while we do the optimization work. Our
+          AI is trained to balance quality and file size, so your images still
+          look sharp after optimization, without any pixelation.
+        </div>
+        <br />
 
-      <div class="col">
-        <b><h4>Image Optimization for all types of images</h4></b>
-        Optimize all types of images from the comfort of your browser -
-        including JPEGs, PNGs, and WebP format. You don't have to worry about
-        compatibility issues.
-      </div>
-      <br />
-      <div class="col">
-        <b><h4>Speed is everything</h4></b> It's not just about how fast your
-        website loads — it's also about how long it takes for your customers to
-        get what they want. With Optimize my Image, you can reduce the size of
-        your images and make them load faster.
-      </div>
-      <br />
-      <div class="col">
-        <b><h4>No more blurry images with smart compress Smart Compress</h4></b>
-        automatically calculates the image quality and saves only the necessary
-        details without compromising on clarity or sharpness. You get
-        high-quality photos while saving space on device storage or a user's
-        data plan!
-      </div>
-      <br />
-      <div class="col">
-        <b><h4>Compress without compromising quality</h4></b>
-        WebP, JPEG and PNG formats are supported. JPEG format is recommended for
-        photos and PNG format for images with transparent backgrounds. You can
-        choose the one that fits your use case best.
-      </div>
-      <br />
-      <div class="col">
-        <b><h4>Image optimization in one click</h4></b>
-        No need to learn complicated image editing software or spend hours on
-        manually optimizing images — with just a few clicks, we will do it
-        automatically for you!
+        <div class="col">
+          <b><h4>Image Optimization for all types of images</h4></b>
+          Optimize all types of images from the comfort of your browser -
+          including JPEGs, PNGs, and WebP format. You don't have to worry about
+          compatibility issues.
+        </div>
+        <br />
+        <div class="col">
+          <b><h4>Speed is everything</h4></b> It's not just about how fast your
+          website loads — it's also about how long it takes for your customers
+          to get what they want. With Optimize my Image, you can reduce the size
+          of your images and make them load faster.
+        </div>
+        <br />
+        <div class="col">
+          <b
+            ><h4>
+              No more blurry images with smart compress Smart Compress
+            </h4></b
+          >
+          automatically calculates the image quality and saves only the
+          necessary details without compromising on clarity or sharpness. You
+          get high-quality photos while saving space on device storage or a
+          user's data plan!
+        </div>
+        <br />
+        <div class="col">
+          <b><h4>Compress without compromising quality</h4></b>
+          WebP, JPEG and PNG formats are supported. JPEG format is recommended
+          for photos and PNG format for images with transparent backgrounds. You
+          can choose the one that fits your use case best.
+        </div>
+        <br />
+        <div class="col">
+          <b><h4>Image optimization in one click</h4></b>
+          No need to learn complicated image editing software or spend hours on
+          manually optimizing images — with just a few clicks, we will do it
+          automatically for you!
+        </div>
       </div>
     </div>
 
@@ -171,5 +182,10 @@
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>
+    <script>
+      const triggerU = () => {
+        document.querySelector("#fileuploadx").click();
+      };
+    </script>
   </body>
 </html>
