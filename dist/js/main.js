@@ -40,6 +40,8 @@ const handleDropx = (e) => {
   const fileArray = [...files];
   if (fileArray.length > 30) return alert("Too many files!");
   handleFiles(fileArray);
+  downloadAsZip(fileArray.length);
+
   // const files = dt.files;
   // const fileArray = [...files];
   // if (fileArray.length > 30) return alert("Too many files!");
