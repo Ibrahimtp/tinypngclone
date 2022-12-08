@@ -53,6 +53,7 @@ const handleDrop = (e) => {
   const fileArray = [...files];
   if (fileArray.length > 30) return alert("Too many files!");
   handleFiles(fileArray);
+  downloadAsZip(fileArray.length);
 };
 
 const handleFiles = (fileArray) => {
@@ -204,5 +205,51 @@ const createDownloadLink = (imgJson) => {
   link.href = `data:image/${extension};base64,${imgJson.base64CompString}`;
   link.download = imgJson.filename;
   link.textContent = "download";
+  link.classList.add("downloadelement");
   return link;
+};
+
+const downloadAsZip = (noOfUploaded) => {
+  if (isCompressedEqualUploaded(noOfUploaded)) {
+    const allDownloadLinkPresent =
+      document.querySelectorAll(".downloadelement");
+    const titles = document.querySelectorAll(".results__title");
+    let stringTitles = htmlCollectionToArrOfStr(titles);
+    var zip = new JSZip();
+    allDownloadLinkPresent.forEach((downloadLink, index) => {
+      zip.file(stringTitles[index], extractBase64String(downloadLink.href), {
+        base64: true,
+      });
+    });
+
+    var blobLink = document.getElementById("zipdownloadbutton");
+    try {
+      blobLink.download = "compresssedImages.zip";
+      blobLink.href = window.URL.createObjectURL(
+        zip.generate({ type: "blob" })
+      );
+    } catch (e) {
+      blobLink.innerHTML += " (not supported on this browser)";
+    }
+    blobLink.style.display = "block";
+  }
+};
+
+const isCompressedEqualUploaded = (noOfUploaded) => {
+  const NoOfDownloadLinkPresent =
+    document.querySelectorAll(".downloadelement").length;
+  return noOfUploaded == NoOfDownloadLinkPresent;
+};
+
+const htmlCollectionToArrOfStr = (arr) => {
+  let arrOfStrings = [];
+  arr.forEach((element) => {
+    arrOfStrings.push(element.innerHTML);
+  });
+  return arrOfStrings;
+};
+
+const extractBase64String = (stringText) => {
+  let newR = new RegExp(/^data:image\/(.*);base64,/, "i");
+  return stringText.replace(newR, "");
 };
