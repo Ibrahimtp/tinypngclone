@@ -224,10 +224,8 @@ const downloadAsZip = (noOfUploaded) => {
       });
     });
 
-    zip.generateAsync({ type: "string" }).then((err, content) => {
-      document.getElementById("zipdownloadbutton").href =
-        "data:application/zip;base64," + content;
-      document.getElementById("zipdownloadbutton").style.display = "block";
+    zip.generateAsync({ type: "base64" }).then(function (base64) {
+      location.href = "data:application/zip;base64," + base64;
     });
   } else {
     setTimeout(() => {
