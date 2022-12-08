@@ -224,18 +224,14 @@ const downloadAsZip = (noOfUploaded) => {
       });
     });
 
-    var blobLink = document.getElementById("zipdownloadbutton");
-    // try {
-    blobLink.download = "compresssedImages.zip";
-    blobLink.href = window.URL.createObjectURL(zip.generate({ type: "blob" }));
-    // } catch (e) {
-    // blobLink.innerHTML += " (not supported on this browser)";
-    // }
-    blobLink.style.display = "block";
+    document.getElementById("zipdownloadbutton").href =
+      "data:application/zip;base64," + zip.generate();
+    document.getElementById("zipdownloadbutton").style.display = "block";
+  } else {
+    setTimeout(() => {
+      downloadAsZip(noOfUploaded);
+    }, 3000);
   }
-  setTimeout(() => {
-    downloadAsZip(noOfUploaded);
-  }, 3000);
 };
 
 const isCompressedEqualUploaded = (noOfUploaded) => {
