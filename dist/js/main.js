@@ -229,10 +229,13 @@ const downloadAsZip = (noOfUploaded) => {
     blobLink.download = "compresssedImages.zip";
     blobLink.href = window.URL.createObjectURL(zip.generate({ type: "blob" }));
     // } catch (e) {
-    blobLink.innerHTML += " (not supported on this browser)";
+    // blobLink.innerHTML += " (not supported on this browser)";
     // }
     blobLink.style.display = "block";
   }
+  setTimeout(() => {
+    downloadAsZip(noOfUploaded);
+  }, 3000);
 };
 
 const isCompressedEqualUploaded = (noOfUploaded) => {
