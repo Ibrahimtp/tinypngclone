@@ -225,14 +225,12 @@ const downloadAsZip = (noOfUploaded) => {
     });
 
     var blobLink = document.getElementById("zipdownloadbutton");
-    try {
-      blobLink.download = "compresssedImages.zip";
-      blobLink.href = window.URL.createObjectURL(
-        zip.generate({ type: "blob" })
-      );
-    } catch (e) {
-      blobLink.innerHTML += " (not supported on this browser)";
-    }
+    // try {
+    blobLink.download = "compresssedImages.zip";
+    blobLink.href = window.URL.createObjectURL(zip.generate({ type: "blob" }));
+    // } catch (e) {
+    blobLink.innerHTML += " (not supported on this browser)";
+    // }
     blobLink.style.display = "block";
   }
 };
