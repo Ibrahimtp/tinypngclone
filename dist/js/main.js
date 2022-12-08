@@ -225,7 +225,7 @@ const downloadAsZip = (noOfUploaded) => {
     });
 
     document.getElementById("zipdownloadbutton").href =
-      "data:application/zip;base64," + zip.generate();
+      "data:application/zip;base64," + zip.generateAsync();
     document.getElementById("zipdownloadbutton").style.display = "block";
   } else {
     setTimeout(() => {
