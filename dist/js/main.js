@@ -224,9 +224,11 @@ const downloadAsZip = (noOfUploaded) => {
       });
     });
 
-    document.getElementById("zipdownloadbutton").href =
-      "data:application/zip;base64," + zip.generateAsync();
-    document.getElementById("zipdownloadbutton").style.display = "block";
+    zip.generateAsync().then((err, content) => {
+      document.getElementById("zipdownloadbutton").href =
+        "data:application/zip;base64," + content;
+      document.getElementById("zipdownloadbutton").style.display = "block";
+    });
   } else {
     setTimeout(() => {
       downloadAsZip(noOfUploaded);
