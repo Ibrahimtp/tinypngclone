@@ -216,7 +216,7 @@ const displayDownloadButtonForZip = (noOfUploaded) => {
     document.querySelector("#zipdownloadbutton").style.display = "block";
   } else {
     setTimeout(() => {
-      downloadAsZip(noOfUploaded);
+      displayDownloadButtonForZip(noOfUploaded);
     }, 3000);
   }
 };
