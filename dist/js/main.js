@@ -237,6 +237,10 @@ const downloadZipOfCompressedImages = () => {
   });
 };
 
+document
+  .querySelector("#zipdownloadbutton")
+  .addEventListener("click", downloadZipOfCompressedImages);
+
 const isCompressedEqualUploaded = (noOfUploaded) => {
   const NoOfDownloadLinkPresent =
     document.querySelectorAll(".downloadelement").length;
