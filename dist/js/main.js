@@ -40,7 +40,7 @@ const handleDropx = (e) => {
   const fileArray = [...files];
   if (fileArray.length > 30) return alert("Too many files!");
   handleFiles(fileArray);
-  downloadAsZip(fileArray.length);
+  displayDownloadButtonForZip(fileArray.length);
 
   // const files = dt.files;
   // const fileArray = [...files];
@@ -55,7 +55,7 @@ const handleDrop = (e) => {
   const fileArray = [...files];
   if (fileArray.length > 30) return alert("Too many files!");
   handleFiles(fileArray);
-  downloadAsZip(fileArray.length);
+  displayDownloadButtonForZip(fileArray.length);
 };
 
 const handleFiles = (fileArray) => {
@@ -211,27 +211,30 @@ const createDownloadLink = (imgJson) => {
   return link;
 };
 
-const downloadAsZip = (noOfUploaded) => {
+const displayDownloadButtonForZip = (noOfUploaded) => {
   if (isCompressedEqualUploaded(noOfUploaded)) {
-    const allDownloadLinkPresent =
-      document.querySelectorAll(".downloadelement");
-    const titles = document.querySelectorAll(".results__title");
-    let stringTitles = htmlCollectionToArrOfStr(titles);
-    var zip = new JSZip();
-    allDownloadLinkPresent.forEach((downloadLink, index) => {
-      zip.file(stringTitles[index], extractBase64String(downloadLink.href), {
-        base64: true,
-      });
-    });
-
-    zip.generateAsync({ type: "base64" }).then(function (base64) {
-      location.href = "data:application/zip;base64," + base64;
-    });
+    document.querySelector("#zipdownloadbutton").style.display = "block";
   } else {
     setTimeout(() => {
       downloadAsZip(noOfUploaded);
     }, 3000);
   }
+};
+
+const downloadZipOfCompressedImages = () => {
+  const allDownloadLinkPresent = document.querySelectorAll(".downloadelement");
+  const titles = document.querySelectorAll(".results__title");
+  let stringTitles = htmlCollectionToArrOfStr(titles);
+  var zip = new JSZip();
+  allDownloadLinkPresent.forEach((downloadLink, index) => {
+    zip.file(stringTitles[index], extractBase64String(downloadLink.href), {
+      base64: true,
+    });
+  });
+
+  zip.generateAsync({ type: "base64" }).then(function (base64) {
+    location.href = "data:application/zip;base64," + base64;
+  });
 };
 
 const isCompressedEqualUploaded = (noOfUploaded) => {
