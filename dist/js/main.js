@@ -62,7 +62,7 @@ const handleFiles = (fileArray) => {
   fileArray.forEach((file) => {
     const fileID = counter.getValue();
     counter.incrementValue();
-    if (file.size > 4 * 1024 * 1024) return alert("File over 10 MB");
+    if (file.size > 4 * 1024 * 1024) return alert("File over 4 MB");
     createResult(file, fileID);
     uploadFile(file, fileID);
   });
@@ -232,8 +232,9 @@ const downloadZipOfCompressedImages = () => {
     });
   });
 
-  zip.generateAsync({ type: "base64" }).then(function (base64) {
-    location.href = "data:application/zip;base64," + base64;
+  zip.generateAsync({ type: "blob" }).then(function (content) {
+    saveAs(content, "file.zip");
+    // location.href = "data:application/zip;base64," + base64;
   });
 };
 
