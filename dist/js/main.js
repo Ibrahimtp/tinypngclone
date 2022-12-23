@@ -1,3 +1,4 @@
+import { filter } from "@chakra-ui/react";
 import Counter from "./Counter.js";
 const counter = new Counter();
 
@@ -59,10 +60,11 @@ const handleDrop = (e) => {
 };
 
 const handleFiles = (fileArray) => {
-  fileArray.forEach((file) => {
+  const expectedSizes = filterOutOverFourMbFiles(fileArray);
+  expectedSizes.forEach((file) => {
     const fileID = counter.getValue();
     counter.incrementValue();
-    if (file.size > 4 * 1024 * 1024) alert("File over 4 MB");
+    // if (file.size > 4 * 1024 * 1024) alert("File over 4 MB");
     createResult(file, fileID);
     uploadFile(file, fileID);
   });
@@ -259,4 +261,17 @@ const htmlCollectionToArrOfStr = (arr) => {
 const extractBase64String = (stringText) => {
   let newR = new RegExp(/^data:image\/(.*);base64,/, "i");
   return stringText.replace(newR, "");
+};
+
+const filterOutOverFourMbFiles = (files) => {
+  const lessThanFourMb = [];
+  files.forEach((file) => {
+    if (file.size > 4 * 1024 * 1024) {
+      alert("File over 4 MB");
+    } else {
+      lessThanFourMb.push(file);
+    }
+  });
+
+  return lessThanFourMb;
 };
