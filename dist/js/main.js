@@ -1,4 +1,3 @@
-
 import Counter from "./Counter.js";
 const counter = new Counter();
 
@@ -36,23 +35,20 @@ document.addEventListener("DOMContentLoaded", initApp);
 const handleDropx = (e) => {
   const inputField = document.querySelector("#fileuploadx");
 
-  // alert(inputField.files[0]);
-  const files = filterOutOverFourMbFiles(inputField.files);
+  const files = inputField.files;
+  alert(JSON.stringify(files));
+
   const fileArray = [...files];
   if (fileArray.length > 30) return alert("Too many files!");
   handleFiles(fileArray);
   displayDownloadButtonForZip(fileArray.length);
-
-  // const files = dt.files;
-  // const fileArray = [...files];
-  // if (fileArray.length > 30) return alert("Too many files!");
-  // handleFiles(fileArray);
 };
 
 const handleDrop = (e) => {
-  const dt = filterOutOverFourMbFiles(e.dataTransfer);
+  const dt = e.dataTransfer;
   // alert(JSON.stringify(dt.files[0]));
   const files = dt.files;
+
   const fileArray = [...files];
   if (fileArray.length > 30) return alert("Too many files!");
   handleFiles(fileArray);
