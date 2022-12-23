@@ -1,4 +1,4 @@
-import { filter } from "@chakra-ui/react";
+
 import Counter from "./Counter.js";
 const counter = new Counter();
 
