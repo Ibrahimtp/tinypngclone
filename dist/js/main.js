@@ -145,8 +145,7 @@ const uploadFile = (file, fileID) => {
     const extension = filename.split(".").pop();
     const name = filename.slice(0, filename.length - (extension.length + 1));
     const body = { base64String, name, extension };
-    const url =
-      "https://tinycloneankurjain.netlify.app/.netlify/functions/compress_files";
+    const url =".netlify/functions/compress_files";
 
     try {
       const fileStream = await fetch(url, {
