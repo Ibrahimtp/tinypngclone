@@ -36,12 +36,13 @@ const handleDropx = (e) => {
   const inputField = document.querySelector("#fileuploadx");
 
   const files = inputField.files;
-  alert(JSON.stringify(files));
+  // alert(JSON.stringify(files));
 
   const fileArray = [...files];
   if (fileArray.length > 30) return alert("Too many files!");
-  handleFiles(fileArray);
-  displayDownloadButtonForZip(filterOutOverFourMbFiles(fileArray).length);
+  const legit = filterOutOverFourMbFiles(fileArray);
+  handleFiles(legit);
+  displayDownloadButtonForZip(legit.length);
 };
 
 const handleDrop = (e) => {
@@ -51,12 +52,13 @@ const handleDrop = (e) => {
 
   const fileArray = [...files];
   if (fileArray.length > 30) return alert("Too many files!");
-  handleFiles(fileArray);
-  displayDownloadButtonForZip(filterOutOverFourMbFiles(fileArray).length);
+  const legit = filterOutOverFourMbFiles(fileArray);
+  handleFiles(legit);
+  displayDownloadButtonForZip(legit.length);
 };
 
 const handleFiles = (fileArray) => {
-  const expectedSizes = filterOutOverFourMbFiles(fileArray);
+  const expectedSizes = fileArray;
   expectedSizes.forEach((file) => {
     const fileID = counter.getValue();
     counter.incrementValue();
