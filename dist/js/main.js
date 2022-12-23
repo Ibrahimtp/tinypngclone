@@ -262,9 +262,7 @@ const extractBase64String = (stringText) => {
 const filterOutOverFourMbFiles = (files) => {
   const lessThanFourMb = [];
   files.forEach((file) => {
-    if (file.size > 4 * 1024 * 1024) {
-      alert("File over 4 MB");
-    } else {
+    if (file.size < 4 * 1024 * 1024) {
       lessThanFourMb.push(file);
     }
   });
