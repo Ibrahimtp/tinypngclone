@@ -37,7 +37,7 @@ const handleDropx = (e) => {
   const inputField = document.querySelector("#fileuploadx");
 
   // alert(inputField.files[0]);
-  const files = inputField.files;
+  const files = filterOutOverFourMbFiles(inputField.files);
   const fileArray = [...files];
   if (fileArray.length > 30) return alert("Too many files!");
   handleFiles(fileArray);
@@ -50,7 +50,7 @@ const handleDropx = (e) => {
 };
 
 const handleDrop = (e) => {
-  const dt = e.dataTransfer;
+  const dt = filterOutOverFourMbFiles(e.dataTransfer);
   // alert(JSON.stringify(dt.files[0]));
   const files = dt.files;
   const fileArray = [...files];
