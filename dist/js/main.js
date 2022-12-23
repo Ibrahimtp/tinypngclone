@@ -41,7 +41,7 @@ const handleDropx = (e) => {
   const fileArray = [...files];
   if (fileArray.length > 30) return alert("Too many files!");
   handleFiles(fileArray);
-  displayDownloadButtonForZip(fileArray.length);
+  displayDownloadButtonForZip(filterOutOverFourMbFiles(fileArray).length);
 };
 
 const handleDrop = (e) => {
@@ -52,7 +52,7 @@ const handleDrop = (e) => {
   const fileArray = [...files];
   if (fileArray.length > 30) return alert("Too many files!");
   handleFiles(fileArray);
-  displayDownloadButtonForZip(fileArray.length);
+  displayDownloadButtonForZip(filterOutOverFourMbFiles(fileArray).length);
 };
 
 const handleFiles = (fileArray) => {
@@ -264,6 +264,8 @@ const filterOutOverFourMbFiles = (files) => {
   files.forEach((file) => {
     if (file.size < 4 * 1024 * 1024) {
       lessThanFourMb.push(file);
+    } else {
+      alert("File over 4 MB");
     }
   });
 
