@@ -62,6 +62,7 @@ const handleFiles = (fileArray) => {
   expectedSizes.forEach((file) => {
     const fileID = counter.getValue();
     counter.incrementValue();
+    showToast();
     // if (file.size > 4 * 1024 * 1024) alert("File over 4 MB");
     createResult(file, fileID);
     uploadFile(file, fileID);
@@ -233,7 +234,7 @@ const downloadZipOfCompressedImages = () => {
   });
 
   zip.generateAsync({ type: "blob" }).then(function (content) {
-    saveAs(content, "Optimize My Image.zip");
+    saveAs(content, "Optimized_Images.zip");
     // location.href = "data:application/zip;base64," + base64;
   });
 };
@@ -273,3 +274,11 @@ const filterOutOverFourMbFiles = (files) => {
 
   return lessThanFourMb;
 };
+
+function showToast() {
+  var toast = document.getElementById("toast");
+  toast.className = "show";
+  setTimeout(function () {
+    toast.className = toast.className.replace("show", "");
+  }, 5000);
+}
