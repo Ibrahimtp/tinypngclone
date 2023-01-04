@@ -233,7 +233,7 @@ const downloadZipOfCompressedImages = () => {
   });
 
   zip.generateAsync({ type: "blob" }).then(function (content) {
-    saveAs(content, "file.zip");
+    saveAs(content, "Optimize My Image.zip");
     // location.href = "data:application/zip;base64," + base64;
   });
 };
